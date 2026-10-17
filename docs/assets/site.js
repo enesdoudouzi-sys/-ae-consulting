@@ -52,7 +52,7 @@
   } else reveal.forEach((element) => element.classList.add('visible'));
 
   // Anonyme Reichweitenmessung: nur der Seitenpfad, keine Cookies, kein Fingerprinting.
-  const path = location.pathname.replace(/^\/ae-consulting-website/, '').toLowerCase() || '/';
+  const path = location.pathname.toLowerCase() || '/';
   const local = /^(localhost|127\.)/.test(location.hostname);
   if (config.api && !local && navigator.doNotTrack !== '1' && /^\/[a-z0-9\-/.]*$/.test(path) && path.length <= 100 && !path.includes('admin')) {
     fetch(`${config.api}/api/pv`, {
